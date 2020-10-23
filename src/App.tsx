@@ -8,7 +8,7 @@ width: 100vw;
 height: 100vh;
 display: flex;
 justify-content: center;
-background-color: rgba(253, 245, 232, 0.4);
+background-color: rgba(253, 245, 232, 0.5);
 `
 
 

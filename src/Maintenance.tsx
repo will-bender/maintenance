@@ -49,7 +49,7 @@ const MaintenanceImage = styled.img`
 const OldSiteButton = styled.a`
     width: 80%;
     padding: 2% 0;
-    background-color: black;
+    background-color: RGBA(38, 73, 92, 1);
     color: white;
     font-size: 1vw;
     font-weight: 700;
