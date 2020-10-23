@@ -46,16 +46,15 @@ const MaintenanceImage = styled.img`
     width: 60%;
     object-fit: contain;
 `
-const OldSiteButton = styled.button`
+const OldSiteButton = styled.a`
     width: 80%;
-    padding: 2% 10%;
+    padding: 2% 0;
     background-color: black;
     color: white;
     font-size: 1vw;
     font-weight: 700;
-    outline: none;
-    border: none;
-
+    text-align: center;
+    text-decoration: none;
 `
 
 const Maintenance = () => {
@@ -65,7 +64,7 @@ const Maintenance = () => {
                 <MessageTitle>{"workharder.io"}</MessageTitle>
                 <MessageSubtitle><b>{"A more functional site in process"}</b></MessageSubtitle>
                 <MessageBody>{"I've recently come across libraries such as Framer Motion that interest me in what I can build. I also have some pent up ideas for solutions that are easy solves. I needed a place that I could benefit from as a playground while also gracing the internet. This is that site!"}</MessageBody>
-    <OldSiteButton>{"Go to old site"}</OldSiteButton>
+                <OldSiteButton href={"https://theworkharder.com"} >{"Go to old site"}</OldSiteButton>
             </MaintenanceMessage>
             <MaintenanceImage src={logos[Math.floor(Math.random() * logos.length)]} />
         </MaintenanceLayout>
