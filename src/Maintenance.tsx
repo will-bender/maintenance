@@ -61,7 +61,7 @@ const Maintenance = () => {
     return (
         <MaintenanceLayout >
             <MaintenanceMessage>
-                <MessageTitle>{"workharder.io"}</MessageTitle>
+                <MessageTitle>{"willbender.io"}</MessageTitle>
                 <MessageSubtitle><b>{"A more functional site in process"}</b></MessageSubtitle>
                 <MessageBody>{"I've recently come across libraries such as Framer Motion that interest me in what I can build. I also have some pent up ideas for solutions that are easy solves. I needed a place that I could benefit from as a playground while also gracing the internet. This is that site!"}</MessageBody>
                 <OldSiteButton href={"https://theworkharder.com"} >{"Go to old site"}</OldSiteButton>
