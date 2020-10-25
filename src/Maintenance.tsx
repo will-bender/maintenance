@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logos from './assets/logos/index';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { relative } from 'path';
 
 const MaintenanceLayout = styled.div`
     width: 80%;
@@ -21,9 +22,6 @@ const MaintenanceMessage = styled.div`
 `
 const MessageTitle = styled.div`
     font-size: 5vw;
-    margin-bottom: 15%;
-    margin-top: -5%;
-
     text-align: left;
 `;
 
@@ -65,6 +63,9 @@ const Maintenance = () => {
     let [currentImageIndex, incrementImageIndex] = useState(3);
     let [currentImageSource, updateImageSource] = useState(logos[3]);
 
+    const scaleTitleBoxTada = async () => {
+
+    }
 
     const swapPhoto = async () => {
         //get the current index
@@ -74,29 +75,16 @@ const Maintenance = () => {
         console.log('index PRE', `|     ${currentImageIndex}|  `);
         await incrementImageIndex(() => {
             // console.log(currentImageIndex - logos.length + 1);
-            if (currentImageIndex === (logos.length - 1)){
+            if (currentImageIndex === (logos.length - 1)) {
                 return currentImageIndex - logos.length + 1;
             }
             else {
                 return currentImageIndex + 1;
             }
-            // const currentIndex = currentImageIndex + 1;
-            // const isLastPhoto = currentIndex > (logos.length - 1)
-            // console.log(currentImageIndex, isLastPhoto);
-            // if (isLastPhoto){
-            //     console.log('You just clicked on the last photo', logos);
-            //     currentImageIndex = 0;
-            //     console.log('Current Index', currentImageIndex);
-            //     return 0;
-            // }
-            // else {
-            //     console.log(currentImageIndex, currentIndex);
-            //     return currentIndex;
-            // }
         });
-        console.log('index POST:',`     |${currentImageIndex}|      `);
+        console.log('index POST:', `     |${currentImageIndex}|      `);
         updateImageSource(currentImageSource = logos[currentImageIndex]);
-        
+
 
 
     }
@@ -104,7 +92,37 @@ const Maintenance = () => {
     return (
         <MaintenanceLayout >
             <MaintenanceMessage>
-                <MessageTitle>{"willbender.io"}</MessageTitle>
+                <motion.div
+
+                    style={{
+                        backgroundColor: "inherit",
+                        marginBottom: "15%",
+                        marginTop: "-5%",
+                        width: 0,
+                        backgroundSize: "50%, 50%",
+                        position: 'relative',
+                    }}
+                    animate = {{
+                        type: "spring",
+                        width: "100%",
+                        x: "-20%",
+                        // backgroundColor: "yellow",
+                        // backgroundSize: "max-content, 50%",
+
+                    }}
+                    transition={{
+                        duration: .3,
+                        stiffness: 3000,
+                        bounceStiffness: -2000,
+                        delay: .5,
+                    }}
+                    onAnimationComplete= {scaleTitleBoxTada}
+                >
+                    <div style={{ position: 'absolute', bottom: 0, width: "100%", height: "3vw", backgroundColor: "#FDFD96", zIndex: -1, borderRadius: ".8vh", }}>
+
+                    </div>
+                    <MessageTitle>{"willbender.io"}</MessageTitle>
+                </motion.div>
                 <MessageSubtitle><b>{"A more functional site in process"}</b></MessageSubtitle>
                 <MessageBody>{"I've recently come across libraries such as Framer Motion that interest me in what I can build. I also have some pent up ideas for solutions that are easy solves. I needed a place that I could benefit from as a playground while also gracing the internet. This is that site!"}</MessageBody>
                 <OldSiteButton href={"https://theworkharder.com"} >{"Go to old site"}</OldSiteButton>
